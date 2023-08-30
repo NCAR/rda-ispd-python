@@ -155,7 +155,8 @@ def add_inventory_record(fname, cdate, count, inventory, cntopt = 0):
    if cntopt == 2:
       cnd = "date = '{}'".format(cdate)
       pgrec = PgDBI.pgget(table, "didx, count", cnd, PgLOG.LGEREX)
-      if not pgrec: PgLOG.pglog("{}: error get record for {}".format(table, cnd), PgLOG.LGEREX)
+      if not pgrec:
+         logger.error("{}: error get record for {}".format(table, cnd))
       count = pgrec['count']
       didx = pgrec['didx']
       record = {}
@@ -351,7 +352,8 @@ def init_indices_for_date(cdate, fname):
       CURIIDX = INVENTORY['maxiidx']
       CURTIDX = INVENTORY['tidx']
    else:
-      pgrec = PgDBI.pgget("ispd_inventory", "*", "date = '{}'".format(cdate), PgLOG.LGEREX)
+      table = "{}.ispd_inventory".format(DBCNTL)
+      pgrec = PgDBI.pgget(table, "*", "date = '{}'".format(cdate), PgLOG.LGEREX)
       if not pgrec:
          logger.error("{}: given date not in inventory yet".format(cdate))
       if CURIIDX < pgrec['miniidx']:

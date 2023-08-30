@@ -6,7 +6,7 @@ the ISPD database (ISPDDB)
 import os
 from PgLOG import pgexit
 from PgDBI import ispddb_dbname
-import ispd_common
+import .ispd_common
 import logging
 
 logger = logging.getLogger(__name__)

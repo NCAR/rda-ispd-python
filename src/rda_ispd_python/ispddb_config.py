@@ -391,149 +391,140 @@ ISPDFEEDBACK = {
       'position': 12,
       'description': "Unique observation number code"
    },
-   'mdpavims': {
-      'index': 3,
-      'precision': 0.01,
-      'field_index': 15,
-      'size': 7,
-      'missing': 9999.99,
-      'position': None,
-      'description': "Modified observed pressure after vertically interpolating to model surface"
-   },
-   'epvims': {
-      'index': 4,
-      'precision': 0.01,
-      'field_index': 16,
-      'size': 5,
-      'missing': -9.99,
-      'position': None,
-      'description': "Error in observed pressure vertically interpolated to model surface"
-   },
-   'bias': {
-      'index': 5,
-      'precision': 0.01,
-      'field_index': 17,
-      'size': 7,
-      'missing': 0.00,
-      'position': None,
-      'description': "Difference between observation and analysis averaged over past sixty days"
-   },
    'sfsfp': {
-      'index': 6,
-      'precision': 1,
-      'field_index': 18,
-      'size': 1,
-      'missing': 9,
-      'position': None,
-      'description': "Status flag for observed surface pressure"
+       'index': 3,
+       'precision': 0.01,
+       'field_index': 15,
+       'size': 7,
+       'missing': 9999.99,
+       'position': None,
+       'description': "Observed station pressure or sea level pressure"
+   },
+   'pobtime_offset': {
+       'index': 4, 
+       'precision': 0.01, 
+       'field_index': 16,  
+       'size': 6,
+       'missing': 9.9,
+       'position': None,
+       'description': "Time offset of observation time from analysis time"       
+   },
+   'poberrvar_orig_out': {
+       'index': 5, 
+       'precision': 0.01,
+       'field_index': 17,
+       'size': 6,
+       'missing': 99.9,
+       'position': None,
+       'description': "Original Error Variance"       
+   },
+   'poberrvar_orig_out': {
+       'index': 6,
+       'precision': 0.01,
+       'field_index': 18,
+       'size': 7,
+       'missing': 99.9,
+       'position': None,
+       'description': "Observation error variance if modified by analysis"
+   },
+   'poberrvaruse': {
+       'index': 7,
+       'precision': 0.01,
+       'field_index': 19,
+       'size': 7,
+       'missing': 99.9,
+       position: None,
+       'description': "Observation error variance used in analysis"
+   },
+   'paoverpb_save': {
+       'index': 8,
+       'precision': 0.01,
+       'field_index': 20,
+       'size': 9,
+       'missing': 99.9,
+       'position': None,
+       'description': "H(pa)H^T/H(Pb)H^T analysis ensemble covariance at space-time location divided by forecast ensemble covariance"
+   },
+   'local_lscale': {
+       'index': 9,
+       'precision': 0.01,
+       'field_index': 21,
+       'size': 8,
+       'missing': 9999.9,
+       'position': None,
+       'description': "Local length scale"
    },
    'ai': {
-      'index': 7,
-      'precision': 1,
-      'field_index': 19,
-      'size': 1,
-      'missing': 9,
-      'position': None,
-      'description': "Assimilation indicator"
+       'index': 10,
+       'precision': 1,
+       'field_index': 22,
+       'size': 1,
+       'missing': 9,
+       'position': None,
+       'description': "Assimilation indicator 1=skipped"
+   }
+   'bias': {
+       'index': 11,
+       'precision': 0.01,
+       'field_index': 23,
+       'size': 10,
+       'missing': 9.9999,
+       'position': None,
+       'description': "Bias ov-(ob-fg)-ensmean_obnobc"
    },
-   'uc': {
-      'index': 8,
-      'precision': 1,
-      'field_index': 20,
-      'size': 1,
-      'missing': 9,
-      'position': None,
-      'description': "Usability check for reanalysis"
-   },
-   'bcf': {
-      'index': 9,
-      'precision': 1,
-      'field_index': 21,
-      'size': 1,
-      'missing': 9,
-      'position': None,
-      'description': "QC background check flag indicator"
-   },
-   'bf': {
-      'index': 10,
-      'precision': 1,
-      'field_index': 22,
-      'size': 1,
-      'missing': 9,
-      'position': None,
-      'description': "Buddy flag indicator"
+   'pge': {
+       'index': 12,
+       'precision': 0.01,
+       'field_index': 24,
+       'size': 5,
+       'missing': 9.9999,
+       'position': None,
+       'description': "Probability of gross error"
    },
    'qc': {
-      'index': 11,
-      'precision': 1,
-      'field_index': 23,
-      'size': 1,
-      'missing': 9,
-      'position': None,
-      'description': "QC control indicator"
+       'index': 13,
+       'precision': 1,
+       'field_index': 25,
+       'size': 1,
+       'missing': 9,
+       'position': None,
+       'description': "Quality Control failure Indicator 1=failed"
    },
-   'emfg': {
-      'index': 12,
-      'precision': 0.01,
-      'field_index': 24,
-      'size': 7,
-      'missing': 9999.99,
-      'position': None,
-      'description': "Ensemble mean first guess pressure"
+   'pobsprd_prior': {
+       'index': 14,
+       'precision': 0.01,
+       'field_index': 26,
+       'size': 8,
+       'missing': 99.9,
+       'position': None,
+       'description': "Variance of Hx^f Variance of Ensemble Guess Pressure interpolated to observation time and location"
    },
-   'sdeg': {
-      'index': 13,
-      'precision': 0.01,
-      'field_index': 25,
-      'size': 5,
-      'missing': -9.99,
-      'position': None,
-      'description': "Standard deviation of ensemble first guess pressure"
+   'pobfit_prior': {
+       'index': 15,
+       'precision': 0.01,
+       'field_index': 27,
+       'size': 8,
+       'missing': 9999.9,
+       'position': None,
+       'description': "(Observation-Bias) minus First Guess Pressure"
    },
-   'mpmemfg': {
-      'index': 14,
-      'precision': 0.01,
-      'field_index': 26,
-      'size': 6,
-      'missing': 999.99,
-      'position': None,
-      'description': "Ensemble mean first guess pressure minus modified observation pressure"
+   'pobsprd_post': {
+       'index': 16,
+       'precision': 0.01,
+       'field_index': 28,
+       'size': 8,
+       'missing': 99.9,
+       'position': None,
+       'description': "Variance of Hx^a Variance of Ensemble Analysis interpolated to observation time and location"
    },
-   'emap': {
-      'index': 15,
-      'precision': 0.01,
-      'field_index': 27,
-      'size': 7,
-      'missing': 9999.99,
-      'position': None,
-      'description': "Ensemble mean analysis pressure"
-   },
-   'sdeap': {
-      'index': 16,
-      'precision': 0.01,
-      'field_index': 28,
-      'size': 5,
-      'missing': -9.99,
-      'position': None,
-      'description': "Standard deviation of ensemble analysis pressure"
-   },
-   'mpmema': {
-      'index': 17,
-      'precision': 0.01,
-      'field_index': 29,
-      'size': 6,
-      'missing': 999.99,
-      'position': None,
-      'description': "Ensemble mean analysis pressure minus modified observation pressure"
-   },
-   'melv': {
-      'index': 18,
-      'precision': 1,
-      'field_index': 30,
-      'size': 4,
-      'missing': 9999,
-      'position': None,
-      'description': "Modified elevation"
+   'pobfit_post': {
+       'index': 17,
+       'precision': 0.01,
+       'field_index': 29,
+       'size': 8,
+       'missing': 9999.99,
+       'position': None,
+       'description': "Observation-Bias) minus Ensemble Mean Analysis Pressure"
    }
 }
 
@@ -555,7 +546,7 @@ ISPDS = {
       'attm': ISPDTRACK,
       'tname': 'Track'
    },
-   'ispdfeedback': {
+   'ispdv4feedback': {
       'tindex': 3, 
       'attm': ISPDFEEDBACK,
       'tname': 'Feedback'

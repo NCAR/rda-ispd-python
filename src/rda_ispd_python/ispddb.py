@@ -6,7 +6,7 @@ the ISPD database (ISPDDB)
 import os
 from PgLOG import pgexit
 from PgDBI import ispddb_dbname
-import .ispd_common
+from .ispd_common import *
 import logging
 
 logger = logging.getLogger(__name__)
@@ -17,7 +17,7 @@ class FillISPD:
       self.lead_uid = lead_uid
       self.check_existing = check_existing
       self.pvals = {'names': None, 'files': [], 'uatti': ''}
-      self.pvals['names'] = '/'.join(ispd_common.ISPD_NAMES)
+      self.pvals['names'] = '/'.join(ISPD_NAMES)
 
    def initialize_db(self):
       ispddb_dbname()
@@ -26,7 +26,7 @@ class FillISPD:
       pgexit()
 
    def initialize_indices(self):
-      ispd_common.init_current_indices(self.lead_uid, self.check_existing)
+      init_current_indices(self.lead_uid, self.check_existing)
 
    def get_input_files(self, files):
       if files is None:
@@ -38,11 +38,11 @@ class FillISPD:
       """ Insert ISPD data into ISPDDB """
 
       fcnt = 0
-      tcounts = [0]*ispd_common.TABLECOUNT
+      tcounts = [0]*TABLECOUNT
       for file in self.pvals['files']:
          fcnt += 1
          acnts = self.process_ispd_file(file)
-         for i in range(ispd_common.TABLECOUNT): tcounts[i] += acnts[i]
+         for i in range(TABLECOUNT): tcounts[i] += acnts[i]
 
       if fcnt > 1: 
          logger.info("{} ({}) filled for {} files".format('/'.join(map(str, tcounts)), self.pvals['names'], fcnt))
@@ -57,36 +57,36 @@ class FillISPD:
       logger.info("Recording ISPD records from file '{}' into ISPDDB".format(fname))
 
       ISPD = open(fname, 'r', encoding = 'latin_1')
-      acounts = [0]*ispd_common.TABLECOUNT
+      acounts = [0]*TABLECOUNT
       records = {}
 
       # get the first valid date and do initialization
       line = ISPD.readline()
       while line:
-         idate = cdate = ispd_common.get_ispd_date(line)
+         idate = cdate = get_ispd_date(line)
          if cdate:
-            ispd_common.init_indices_for_date(cdate, iname)
-            records = ispd_common.get_ispd_records(line, cdate, records)
+            init_indices_for_date(cdate, iname)
+            records = get_ispd_records(line, cdate, records)
             break
          line = ISPD.readline()
 
       line = ISPD.readline()
       while line:
-         idate = ispd_common.get_ispd_date(line)
+         idate = get_ispd_date(line)
          if idate:
             if idate != cdate:
-               acnts = ispd_common.add_ispd_records(cdate, records)
-               for i in range(ispd_common.TABLECOUNT): acounts[i] += acnts[i]
+               acnts = add_ispd_records(cdate, records)
+               for i in range(TABLECOUNT): acounts[i] += acnts[i]
                records = {}
                cdate = idate
-               ispd_common.init_indices_for_date(cdate, iname)
-            records = ispd_common.get_ispd_records(line, idate, records)
+               init_indices_for_date(cdate, iname)
+            records = get_ispd_records(line, idate, records)
          line = ISPD.readline()
 
       ISPD.close()
 
-      acnts = ispd_common.add_ispd_records(cdate, records)
-      for i in range(ispd_common.TABLECOUNT): acounts[i] += acnts[i]
+      acnts = add_ispd_records(cdate, records)
+      for i in range(TABLECOUNT): acounts[i] += acnts[i]
 
       logger.info("{} ({}) filled from {}".format(' '.join(map(str, acounts)), PVALS['names'], os.path.basename(fname)))
    

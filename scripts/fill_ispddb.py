@@ -29,7 +29,7 @@ def main(args):
 def configure_log(**kwargs):
    """ Congigure logging """
    LOGPATH = '/glade/scratch/tcram/logs/ispd/'
-   LOGFILE = '{}.log'.format(__name__)
+   LOGFILE = '{}.log'.format(__file__)
 
    if 'level' in kwargs:
       loglevel = kwargs['level']

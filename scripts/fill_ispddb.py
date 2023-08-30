@@ -7,7 +7,7 @@ insert the records into the ISPD database (ISPDDB) at the NCAR RDA.
 
 import logging
 import logging.handlers
-import sys
+import os, sys
 
 from rda_ispd_python.ispddb import FillISPD
 

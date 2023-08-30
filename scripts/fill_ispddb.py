@@ -5,6 +5,7 @@ Script to read observation records from the original ISPD HDF5 files and
 insert the records into the ISPD database (ISPDDB) at the NCAR RDA.
 """
 
+import logging
 from rda_ispd_python.ispddb import FillISPD
 
 #=========================================================================================

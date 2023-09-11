@@ -433,7 +433,7 @@ ISPDFEEDBACK = {
        'field_index': 19,
        'size': 7,
        'missing': 99.9,
-       position: None,
+       'position': None,
        'description': "Observation error variance used in analysis"
    },
    'paoverpb_save': {
@@ -462,7 +462,7 @@ ISPDFEEDBACK = {
        'missing': 9,
        'position': None,
        'description': "Assimilation indicator 1=skipped"
-   }
+   },
    'bias': {
        'index': 11,
        'precision': 0.01,

@@ -62,15 +62,15 @@ def parse_opts():
    import argparse
    import textwrap
 	
-   desc = "Read ISPD records from original HDF5 data files and store information in ISPDDB."	
+   desc = "Read ISPD records from pre-processed ASCII data files and store information in ISPDDB."	
    epilog = textwrap.dedent('''\
    Example:
-      - Read the ISPD file 1950123100.h5 and store the information in ISPDDB:
-         fill_ispddb.py -i -e 1950123100.h5
+      - Read the ISPD records from ispd_v4_1950-01.txt and store the information in ISPDDB:
+         fill_ispddb.py -i -e ispd_v4_1950-01.txt
    ''')
 
    parser = argparse.ArgumentParser(formatter_class=argparse.RawDescriptionHelpFormatter, description=desc, epilog=textwrap.dedent(epilog))
-   parser.add_argument('files', nargs="+", help="Input ISPD file names.  A minimum of one file name is required.")
+   parser.add_argument('files', nargs="+", help="Input ISPD file names (ASCII format).  A minimum of one file name is required.")
    parser.add_argument('-i', '--addinventory', action="store_true", default="False", help='Add daily counting records into inventory table.')
    parser.add_argument('-u', '--leaduid', action="store_true", default="False", help='Standalone attachment records with leading 6-character UID.')
    parser.add_argument('-e', '--checkexisting', action="store_true", default="False", help='Check for existing record before adding record to DB.')

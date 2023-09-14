@@ -88,7 +88,7 @@ def get_one_attm(attm, line):
          position = field['position']
          val = fields[field_index][position:size]
       else:
-         if len(fields[field_index] > size):
+         if len(fields[field_index]) > size:
             val = missing
          else:
             val = fields[field_index]

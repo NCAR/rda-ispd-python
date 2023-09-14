@@ -66,7 +66,7 @@ def get_ispd_records(line, cdate, records):
    
    return records
 
-def get_one_attm(attm, offset, line):
+def get_one_attm(attm, line):
    """ Gets all field values for a single table in an observation record """
 
    fields = line.split(',')

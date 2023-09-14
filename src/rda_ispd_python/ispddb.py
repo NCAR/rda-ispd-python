@@ -41,6 +41,7 @@ class FillISPD:
       tcounts = [0]*TABLECOUNT
       for file in self.pvals['files']:
          fcnt += 1
+         logger.debug("Processing input file {}".format(file))
          acnts = self.process_ispd_file(file)
          for i in range(TABLECOUNT): tcounts[i] += acnts[i]
 

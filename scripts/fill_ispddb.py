@@ -31,7 +31,7 @@ def configure_log(**kwargs):
    LOGPATH = '/glade/scratch/tcram/logs/ispd/'
    LOGFILE = '{}.log'.format(os.path.splitext(__file__)[0])
 
-   if 'level' in kwargs:
+   if 'loglevel' in kwargs:
       loglevel = kwargs['level']
    else:
       loglevel = 'info'
@@ -74,6 +74,7 @@ def parse_opts():
    parser.add_argument('-i', '--addinventory', action="store_true", default="False", help='Add daily counting records into inventory table.')
    parser.add_argument('-u', '--leaduid', action="store_true", default="False", help='Standalone attachment records with leading 6-character UID.')
    parser.add_argument('-e', '--checkexisting', action="store_true", default="False", help='Check for existing record before adding record to DB.')
+   parser.add_argument('-l', '--loglevel', default="info", choices=['debug', 'info', 'warning', 'error', 'critical'], help='Set the logging level.  Default = info.')
 
    if len(sys.argv)==1:
       parser.print_help()

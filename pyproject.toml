@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "rda_ispd_python"
-version = "0.0.8"
+version = "0.0.9"
 authors = [
   { name="Thomas Cram", email="tcram@ucar.edu" },
 ]

@@ -555,6 +555,7 @@ ISPDS = {
 
 TABLECOUNT = len(ISPDS)
 ISPD_NAMES = list(ISPDS.keys())
+FIELD_COUNT = 41
 
 DBCNTL = "ispddb"
 

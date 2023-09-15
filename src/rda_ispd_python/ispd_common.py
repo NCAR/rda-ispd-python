@@ -69,7 +69,10 @@ def get_ispd_records(line, cdate, records):
 def get_one_attm(attm, line):
    """ Gets all field values for a single table in an observation record """
 
-   # trim trailing delimiter if present and split ASCII record into fields
+   # strip newline character from line
+   line = line.rstrip('\n')
+
+   # strip trailing delimiter if present and split ASCII record into fields
    fields = line.rstrip(ISPD_DELIM).split(ISPD_DELIM)
 
    # check number of fields

@@ -37,13 +37,8 @@ def configure_log(**kwargs):
       loglevel = 'info'
 
    level = getattr(logging, loglevel.upper())
-   formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-
-   """ Rotating file handler """
-   rfh = logging.handlers.RotatingFileHandler(logfile, maxBytes=200000000, backupCount=1)
-   rfh.setLevel(level)
-   rfh.setFormatter(formatter)
-   logger.addHandler(rfh)
+   format = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+   logging.basicConfig(filename=logfile, level=level, format=format)
 
    return
 
@@ -78,9 +73,7 @@ def parse_opts():
 
 #=========================================================================================
 
-logger = logging.getLogger(__name__)
-configure_log(level='info')
-
 if __name__ == "__main__":
    args = parse_opts()
+   configure_log(loglevel=args.loglevel)
    main(args)

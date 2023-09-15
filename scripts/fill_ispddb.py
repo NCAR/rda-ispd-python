@@ -28,28 +28,19 @@ def main(args):
 #=========================================================================================
 def configure_log(**kwargs):
    """ Congigure logging """
-   LOGPATH = '/glade/scratch/tcram/logs/ispd/'
-   LOGFILE = '{}.log'.format(os.path.splitext(__file__)[0])
+   logpath = '/glade/scratch/tcram/logs/ispd/'
+   logfile = '{}/{}.log'.format(logpath, os.path.splitext(__file__)[0])
 
    if 'loglevel' in kwargs:
-      loglevel = kwargs['level']
+      loglevel = kwargs['loglevel']
    else:
       loglevel = 'info'
 
-   LEVELS = { 'debug':logging.DEBUG,
-              'info':logging.INFO,
-              'warning':logging.WARNING,
-              'error':logging.ERROR,
-              'critical':logging.CRITICAL,
-            }
-
-   level = LEVELS.get(loglevel, logging.INFO)
-   logger.setLevel(level)
-
+   level = getattr(logging, loglevel.upper())
    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
    """ Rotating file handler """
-   rfh = logging.handlers.RotatingFileHandler(LOGPATH+'/'+LOGFILE,maxBytes=200000000,backupCount=1)
+   rfh = logging.handlers.RotatingFileHandler(logfile, maxBytes=200000000, backupCount=1)
    rfh.setLevel(level)
    rfh.setFormatter(formatter)
    logger.addHandler(rfh)

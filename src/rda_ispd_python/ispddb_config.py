@@ -558,6 +558,9 @@ ISPD_NAMES = list(ISPDS.keys())
 
 DBCNTL = "ispddb"
 
+# field delimiter in ASCII input records
+ISPD_DELIM = '<:>'
+
 MULTI_NAMES = []
 ATTI2NAME = {}
 ATTCPOS = INVENTORY = CURTIDX = CURIIDX = 0

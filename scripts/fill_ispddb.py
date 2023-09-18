@@ -74,6 +74,7 @@ def parse_opts():
 #=========================================================================================
 
 if __name__ == "__main__":
-   args = parse_opts()
    configure_log(loglevel=args.loglevel)
+   logger = logging.getLogger(__name__)
+   args = parse_opts()
    main(args)

@@ -37,7 +37,7 @@ def configure_log(**kwargs):
       loglevel = 'info'
 
    level = getattr(logging, loglevel.upper())
-   format = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+   format = '%(asctime)s - %(name)s - %(lineno)d - %(levelname)s - %(message)s'
    logging.basicConfig(filename=logfile, level=level, format=format)
 
    return

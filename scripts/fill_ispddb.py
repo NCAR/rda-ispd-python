@@ -67,14 +67,13 @@ def parse_opts():
       sys.exit(1)
 
    args = parser.parse_args(sys.argv[1:])
-   logger.info("{0}: {1}".format(sys.argv[0], args))
 
    return args
 
 #=========================================================================================
 
 if __name__ == "__main__":
+   args = parse_opts()
    configure_log(loglevel=args.loglevel)
    logger = logging.getLogger(__name__)
-   args = parse_opts()
    main(args)

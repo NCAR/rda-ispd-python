@@ -81,8 +81,6 @@ def get_one_attm(attm, line):
 
    pgrec = {}
 
-   logger.debug("attm name: {}".format(attm))
-
    for var in attm:
       field = attm[var]
       precision = field['precision']
@@ -90,7 +88,7 @@ def get_one_attm(attm, line):
       size = field['size']
       missing = field['missing']
 
-      if field['position']:
+      if field['position'] is not None:
          position = field['position']
          val = fields[field_index][position:position+size]
       else:

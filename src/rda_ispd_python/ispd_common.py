@@ -98,7 +98,7 @@ def get_one_attm(attm, line):
             val = fields[field_index]
       
       logger.debug("var: {}, val: {}".format(var, val))
-      if re.search("nan", val) and precision > 0:
+      if re.search("nan", str(val)) and precision > 0:
          val = missing
       val = val.rstrip()
 

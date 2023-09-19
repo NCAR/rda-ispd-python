@@ -83,10 +83,10 @@ def get_one_attm(attm, line):
 
    for var in attm:
       field = attm[var]
-      precision = field['precision']
+      field_type = field['type']
       field_index = field['field_index']
       size = field['size']
-      missing = field['missing']
+      missing = str(field['missing'])
 
       if field['position'] is not None:
          position = field['position']
@@ -98,15 +98,13 @@ def get_one_attm(attm, line):
             val = fields[field_index]
       
       logger.debug("var: {}, val: {}".format(var, val))
-      if re.search("nan", str(val)) and precision > 0:
+      if re.search("nan", val) and field_type != str:
          val = missing
       val = val.rstrip()
 
+      # convert val from string to correct type
       if len(val) > 0:
-         if precision > 0.01:
-            pgrec[var] = int(val)
-         else:
-            pgrec[var] = val
+         pgrec[var] = field_type(val)
       else:
          pgrec[var] = None
 

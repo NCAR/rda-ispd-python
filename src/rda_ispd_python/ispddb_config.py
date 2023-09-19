@@ -1,15 +1,10 @@
 """
 Variable definitions for ISPD tables.
-
-Precision: 
-   0 - string
-   1 - integer
-   Otherwise - float
 """
 ISPDMETA = {
    'uid': {
       'index': 0,
-      'precision': 0,
+      'type': str,
       'field_index': 0,
       'size': 19,
       'missing': "9"*19,
@@ -18,7 +13,7 @@ ISPDMETA = {
    },
    'timestamp': {
       'index': 1,
-      'precision': 0,
+      'type': str,
       'field_index': 0,
       'size': 12,
       'missing': "9"*12,
@@ -27,7 +22,7 @@ ISPDMETA = {
    },
    'unoc': {
       'index': 2,
-      'precision': 0,
+      'type': str,
       'field_index': 0,
       'size': 7,
       'missing': "9"*7,
@@ -36,7 +31,7 @@ ISPDMETA = {
    },
    'id': {
       'index': 3,
-      'precision': 0,
+      'type': str,
       'field_index': 32,
       'size': 13,
       'missing': "9"*13,
@@ -45,7 +40,7 @@ ISPDMETA = {
    },
    'year': {
       'index': 4,
-      'precision': 1,
+      'type': int,
       'field_index': 0,
       'size': 4,
       'missing': 9999,
@@ -54,7 +49,7 @@ ISPDMETA = {
    },
    'month': {
       'index': 5,
-      'precision': 1,
+      'type': int,
       'field_index': 0,
       'size': 2,
       'missing': -9,
@@ -63,7 +58,7 @@ ISPDMETA = {
    },
    'day': {
       'index': 6,
-      'precision': 1,
+      'type': int,
       'field_index': 0,
       'size': 2,
       'missing': -9,
@@ -72,7 +67,7 @@ ISPDMETA = {
    },
    'hour': {
       'index': 7,
-      'precision': 1,
+      'type': int,
       'field_index': 0,
       'size': 2,
       'missing': -9,
@@ -81,7 +76,7 @@ ISPDMETA = {
    },
    'minute': {
       'index': 8,
-      'precision': 1,
+      'type': int,
       'field_index': 0,
       'size': 2,
       'missing': -9,
@@ -90,7 +85,7 @@ ISPDMETA = {
    },
    'second': {
       'index': 9,
-      'precision': 1,
+      'type': int,
       'field_index': 0,
       'size': 0,
       'missing': 0,
@@ -99,7 +94,7 @@ ISPDMETA = {
    },
    'lat': {
       'index': 10,
-      'precision': 0.01,
+      'type': float,
       'field_index': 5,
       'size': 6,
       'missing': -99.99,
@@ -108,7 +103,7 @@ ISPDMETA = {
    },
    'lon': {
       'index': 11,
-      'precision': 0.01,
+      'type': float,
       'field_index': 4,
       'size': 7,
       'missing': 999.99,
@@ -117,7 +112,7 @@ ISPDMETA = {
    },
    'elev': {
       'index': 12,
-      'precision': 1,
+      'type': int,
       'field_index': 6,
       'size': 6,
       'missing': 9999,
@@ -126,9 +121,9 @@ ISPDMETA = {
    },
    'ant_offset': {
       'index': 13,
-      'precision': 0.01,
+      'type': float,
       'field_index': 7,
-      'size': 6,
+      'size': 7,
       'missing': 999.99,
       'position': None,
       'description': "Time offset"
@@ -137,7 +132,7 @@ ISPDMETA = {
 ISPDOBS = {
    'uid': {
       'index': 0,
-      'precision': 0,
+      'type': str,
       'field_index': 0,
       'size': 19,
       'missing': "9"*19,
@@ -146,7 +141,7 @@ ISPDOBS = {
    },
    'timestamp': {
       'index': 1,
-      'precision': 0,
+      'type': str,
       'field_index': 0,
       'size': 12,
       'missing': "9"*12,
@@ -155,7 +150,7 @@ ISPDOBS = {
    },
    'unoc': {
       'index': 2,
-      'precision': 0,
+      'type': str,
       'field_index': 0,
       'size': 7,
       'missing': "9"*7,
@@ -164,7 +159,7 @@ ISPDOBS = {
    },
    'slp': {
       'index': 3,
-      'precision': 0.01,
+      'type': float,
       'field_index': 9,
       'size': 8,
       'missing': 9999.99,
@@ -173,7 +168,7 @@ ISPDOBS = {
    },
    'slpe': {
       'index': 4,
-      'precision': 0.01,
+      'type': float,
       'field_index': 10,
       'size': 6,
       'missing': -9.99,
@@ -182,7 +177,7 @@ ISPDOBS = {
    },
    'slpqc': {
       'index': 5,
-      'precision': 1,
+      'type': int,
       'field_index': 11,
       'size': 1,
       'missing': 9,
@@ -191,7 +186,7 @@ ISPDOBS = {
    },
    'sfp': {
       'index': 6,
-      'precision': 0.01,
+      'type': float,
       'field_index': 12,
       'size': 8,
       'missing': 9999.99,
@@ -200,7 +195,7 @@ ISPDOBS = {
    },
    'sfpe': {
       'index': 7,
-      'precision': 0.01,
+      'type': float,
       'field_index': 13,
       'size': 6,
       'missing': -9.99,
@@ -209,7 +204,7 @@ ISPDOBS = {
    },
    'sfpqc': {
       'index': 8,
-      'precision': 1,
+      'type': int,
       'field_index': 14,
       'size': 1,
       'missing': 9,
@@ -218,7 +213,7 @@ ISPDOBS = {
    },
    'obp': {
       'index': 9,
-      'precision': 0.01,
+      'type': float,
       'field_index': 8,
       'size': 8,
       'missing': 9999.99,
@@ -227,7 +222,7 @@ ISPDOBS = {
    },
    'id_type': {
       'index': 10,
-      'precision': 1,
+      'type': int,
       'field_index': 2,
       'size': 2,
       'missing': -9,
@@ -236,7 +231,7 @@ ISPDOBS = {
    },
    'ncep_type': {
       'index': 11,
-      'precision': 1,
+      'type': int,
       'field_index': 1,
       'size': 3,
       'missing': -99,
@@ -245,7 +240,7 @@ ISPDOBS = {
    },
    'ispdbcid': {
       'index': 12,
-      'precision': 0,
+      'type': str,
       'field_index': 3,
       'size': 6,
       'missing': "-99999",
@@ -256,7 +251,7 @@ ISPDOBS = {
 ISPDTRACK = {
    'uid': {
       'index': 0,
-      'precision': 0,
+      'type': str,
       'field_index': 0,
       'size': 19,
       'missing': "9"*19,
@@ -265,7 +260,7 @@ ISPDTRACK = {
    },
    'timestamp': {
       'index': 1,
-      'precision': 0,
+      'type': str,
       'field_index': 0,
       'size': 12,
       'missing': "9"*12,
@@ -274,7 +269,7 @@ ISPDTRACK = {
    },
    'unoc': {
       'index': 2,
-      'precision': 0,
+      'type': str,
       'field_index': 0,
       'size': 7,
       'missing': "9"*7,
@@ -283,7 +278,7 @@ ISPDTRACK = {
    },
    'sname': {
       'index': 3,
-      'precision': 0,
+      'type': str,
       'field_index': 31,
       'size': 30,
       'missing': "-"+"9"*29,
@@ -292,7 +287,7 @@ ISPDTRACK = {
    },
    'slib': {
       'index': 4,
-      'precision': 0,
+      'type': str,
       'field_index': 33,
       'size': 3,
       'missing': "999",
@@ -301,7 +296,7 @@ ISPDTRACK = {
    },
    'icoads_sid': {
       'index': 5,
-      'precision': 1,
+      'type': int,
       'field_index': 34,
       'size': 3,
       'missing': -99,
@@ -310,7 +305,7 @@ ISPDTRACK = {
    },
    'icoads_dck': {
       'index': 6,
-      'precision': 1,
+      'type': int,
       'field_index': 35,
       'size': 3,
       'missing': -99,
@@ -319,7 +314,7 @@ ISPDTRACK = {
    },
    'icoads_pt': {
       'index': 7,
-      'precision': 1,
+      'type': int,
       'field_index': 36,
       'size': 2,
       'missing': -9,
@@ -328,7 +323,7 @@ ISPDTRACK = {
    },
    'sflsd': {
       'index': 8,
-      'precision': 0,
+      'type': str,
       'field_index': 37,
       'size': 1,
       'missing': "9",
@@ -337,7 +332,7 @@ ISPDTRACK = {
    },
    'rtc': {
       'index': 9,
-      'precision': 0,
+      'type': str,
       'field_index': 38,
       'size': 5,
       'missing': "99999",
@@ -346,7 +341,7 @@ ISPDTRACK = {
    },
    'qcislp': {
       'index': 10,
-      'precision': 0,
+      'type': str,
       'field_index': 39,
       'size': 5,
       'missing': "99999",
@@ -355,7 +350,7 @@ ISPDTRACK = {
    },
    'qcisfp': {
       'index': 11,
-      'precision': 0,
+      'type': str,
       'field_index': 40,
       'size': 5,
       'missing': "99999",
@@ -366,7 +361,7 @@ ISPDTRACK = {
 ISPDFEEDBACK = {
    'uid': {
       'index': 0,
-      'precision': 0,
+      'type': str,
       'field_index': 0,
       'size': 19,
       'missing': "9"*19,
@@ -375,7 +370,7 @@ ISPDFEEDBACK = {
    },
    'timestamp': {
       'index': 1,
-      'precision': 0,
+      'type': str,
       'field_index': 0,
       'size': 12,
       'missing': "9"*12,
@@ -384,7 +379,7 @@ ISPDFEEDBACK = {
    },
    'unoc': {
       'index': 2,
-      'precision': 0,
+      'type': str,
       'field_index': 0,
       'size': 7,
       'missing': "9"*7,
@@ -393,7 +388,7 @@ ISPDFEEDBACK = {
    },
    'sfsfp': {
        'index': 3,
-       'precision': 0.01,
+       'type': float,
        'field_index': 15,
        'size': 7,
        'missing': 9999.99,
@@ -402,7 +397,7 @@ ISPDFEEDBACK = {
    },
    'pobtime_offset': {
        'index': 4, 
-       'precision': 0.01, 
+       'type': float, 
        'field_index': 16,  
        'size': 6,
        'missing': 9.9,
@@ -411,7 +406,7 @@ ISPDFEEDBACK = {
    },
    'poberrvar_orig_out': {
        'index': 5, 
-       'precision': 0.01,
+       'type': float,
        'field_index': 17,
        'size': 6,
        'missing': 99.9,
@@ -420,7 +415,7 @@ ISPDFEEDBACK = {
    },
    'poberrvar_orig_out': {
        'index': 6,
-       'precision': 0.01,
+       'type': float,
        'field_index': 18,
        'size': 7,
        'missing': 99.9,
@@ -429,7 +424,7 @@ ISPDFEEDBACK = {
    },
    'poberrvaruse': {
        'index': 7,
-       'precision': 0.01,
+       'type': float,
        'field_index': 19,
        'size': 7,
        'missing': 99.9,
@@ -438,7 +433,7 @@ ISPDFEEDBACK = {
    },
    'paoverpb_save': {
        'index': 8,
-       'precision': 0.01,
+       'type': float,
        'field_index': 20,
        'size': 9,
        'missing': 99.9,
@@ -447,7 +442,7 @@ ISPDFEEDBACK = {
    },
    'local_lscale': {
        'index': 9,
-       'precision': 0.01,
+       'type': float,
        'field_index': 21,
        'size': 8,
        'missing': 9999.9,
@@ -456,7 +451,7 @@ ISPDFEEDBACK = {
    },
    'ai': {
        'index': 10,
-       'precision': 1,
+       'type': int,
        'field_index': 22,
        'size': 1,
        'missing': 9,
@@ -465,7 +460,7 @@ ISPDFEEDBACK = {
    },
    'bias': {
        'index': 11,
-       'precision': 0.01,
+       'type': float,
        'field_index': 23,
        'size': 10,
        'missing': 9.9999,
@@ -474,7 +469,7 @@ ISPDFEEDBACK = {
    },
    'pge': {
        'index': 12,
-       'precision': 0.01,
+       'type': float,
        'field_index': 24,
        'size': 5,
        'missing': 9.9999,
@@ -483,7 +478,7 @@ ISPDFEEDBACK = {
    },
    'qc': {
        'index': 13,
-       'precision': 1,
+       'type': int,
        'field_index': 25,
        'size': 1,
        'missing': 9,
@@ -492,7 +487,7 @@ ISPDFEEDBACK = {
    },
    'pobsprd_prior': {
        'index': 14,
-       'precision': 0.01,
+       'type': float,
        'field_index': 26,
        'size': 8,
        'missing': 99.9,
@@ -501,7 +496,7 @@ ISPDFEEDBACK = {
    },
    'pobfit_prior': {
        'index': 15,
-       'precision': 0.01,
+       'type': float,
        'field_index': 27,
        'size': 8,
        'missing': 9999.9,
@@ -510,7 +505,7 @@ ISPDFEEDBACK = {
    },
    'pobsprd_post': {
        'index': 16,
-       'precision': 0.01,
+       'type': float,
        'field_index': 28,
        'size': 8,
        'missing': 99.9,
@@ -519,7 +514,7 @@ ISPDFEEDBACK = {
    },
    'pobfit_post': {
        'index': 17,
-       'precision': 0.01,
+       'type': float,
        'field_index': 29,
        'size': 8,
        'missing': 9999.99,

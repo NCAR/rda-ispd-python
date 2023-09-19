@@ -33,6 +33,10 @@ def get_ispd_records(line, cdate, records):
    llen = len(line)
    if llen == 0:
       return records
+   
+   if not CURIUID:
+      CURIIDX += 1
+      pgrecs = {}
 
    for aname in ISPDS:
       ispd = ISPDS[aname]

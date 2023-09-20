@@ -32,7 +32,7 @@ ISPDMETA = {
    'id': {
       'index': 3,
       'type': str,
-      'field_index': 32,
+      'field_index': 31,
       'size': 13,
       'missing': "9"*13,
       'position': None,
@@ -279,7 +279,7 @@ ISPDTRACK = {
    'sname': {
       'index': 3,
       'type': str,
-      'field_index': 31,
+      'field_index': 30,
       'size': 30,
       'missing': "-"+"9"*29,
       'position': None,
@@ -288,74 +288,83 @@ ISPDTRACK = {
    'slib': {
       'index': 4,
       'type': str,
-      'field_index': 33,
+      'field_index': 32,
       'size': 3,
       'missing': "999",
       'position': None,
       'description': "Name of station library used for station position, if different from source"
    },
-   'icoads_sid': {
-      'index': 5,
-      'type': int,
-      'field_index': 34,
-      'size': 3,
-      'missing': -99,
-      'position': None,
-      'description': "ICOADS source ID"
-   },
-   'icoads_dck': {
-      'index': 6,
-      'type': int,
-      'field_index': 35,
-      'size': 3,
-      'missing': -99,
-      'position': None,
-      'description': "ICOADS deck ID"
-   },
-   'icoads_pt': {
-      'index': 7,
-      'type': int,
-      'field_index': 36,
-      'size': 2,
-      'missing': -9,
-      'position': None,
-      'description': "ICOADS platform type"
-   },
    'sflsd': {
-      'index': 8,
+      'index': 5,
       'type': str,
-      'field_index': 37,
+      'field_index': 33,
       'size': 1,
       'missing': "9",
       'position': None,
       'description': "Source flag for land station data"
    },
    'rtc': {
-      'index': 9,
+      'index': 6,
       'type': str,
-      'field_index': 38,
+      'field_index': 34,
       'size': 5,
-      'missing': "99999",
+      'missing': "9"*5,
       'position': None,
       'description': "Report type code"
    },
    'qcislp': {
-      'index': 10,
+      'index': 7,
       'type': str,
-      'field_index': 39,
+      'field_index': 35,
       'size': 5,
-      'missing': "99999",
+      'missing': "9"*5,
       'position': None,
       'description': "Quality control indicators for sea level pressure value from source"
    },
    'qcisfp': {
-      'index': 11,
+      'index': 8,
       'type': str,
-      'field_index': 40,
+      'field_index': 36,
       'size': 5,
-      'missing': "99999",
+      'missing': "9"*5,
       'position': None,
       'description': "Quality control indicators for surface pressure value from source"
+   },
+   'icoads_sid': {
+      'index': 9,
+      'type': int,
+      'field_index': 37,
+      'size': 3,
+      'missing': -99,
+      'position': None,
+      'description': "ICOADS source ID"
+   },
+   'icoads_dck': {
+      'index': 10,
+      'type': int,
+      'field_index': 38,
+      'size': 3,
+      'missing': -99,
+      'position': None,
+      'description': "ICOADS deck ID"
+   },
+   'icoads_pt': {
+      'index': 11,
+      'type': int,
+      'field_index': 39,
+      'size': 2,
+      'missing': -9,
+      'position': None,
+      'description': "ICOADS platform type"
+   },
+   'icoads_uid': {
+       'index': 12,
+       'type': str,
+       'field_index': 40,
+       'size': 6,
+       'missing': " "*6,
+       'position': None,
+       'description': "ICOADS record unique ID"
    }
 }
 ISPDFEEDBACK = {

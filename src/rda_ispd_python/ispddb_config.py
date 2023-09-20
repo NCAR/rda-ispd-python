@@ -83,17 +83,8 @@ ISPDMETA = {
       'position': 10,
       'description': "minute"
    },
-   'second': {
-      'index': 9,
-      'type': int,
-      'field_index': 0,
-      'size': 0,
-      'missing': 0,
-      'position': 0,
-      'description': "second"
-   },
    'lat': {
-      'index': 10,
+      'index': 9,
       'type': float,
       'field_index': 5,
       'size': 6,
@@ -102,7 +93,7 @@ ISPDMETA = {
       'description': "Latitude"
    },
    'lon': {
-      'index': 11,
+      'index': 10,
       'type': float,
       'field_index': 4,
       'size': 7,
@@ -111,7 +102,7 @@ ISPDMETA = {
       'description': "Longitude"
    },
    'elev': {
-      'index': 12,
+      'index': 11,
       'type': int,
       'field_index': 6,
       'size': 6,
@@ -120,7 +111,7 @@ ISPDMETA = {
       'description': "Elevation"
    },
    'ant_offset': {
-      'index': 13,
+      'index': 12,
       'type': float,
       'field_index': 7,
       'size': 7,

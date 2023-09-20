@@ -413,7 +413,7 @@ ISPDFEEDBACK = {
        'position': None,
        'description': "Original Error Variance"       
    },
-   'poberrvar_orig_out': {
+   'poberrvar_out': {
        'index': 6,
        'type': float,
        'field_index': 18,

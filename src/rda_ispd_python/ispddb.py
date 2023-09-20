@@ -89,7 +89,7 @@ class FillISPD:
       acnts = add_ispd_records(cdate, records)
       for i in range(TABLECOUNT): acounts[i] += acnts[i]
 
-      logger.info("{} ({}) filled from {}".format(' '.join(map(str, acounts)), PVALS['names'], os.path.basename(fname)))
+      logger.info("{} ({}) filled from {}".format(' '.join(map(str, acounts)), self.pvals['names'], os.path.basename(fname)))
    
       return acounts
 

@@ -390,7 +390,7 @@ ISPDFEEDBACK = {
        'index': 3,
        'type': float,
        'field_index': 15,
-       'size': 7,
+       'size': 8,
        'missing': 9999.99,
        'position': None,
        'description': "Observed station pressure or sea level pressure"
@@ -408,7 +408,7 @@ ISPDFEEDBACK = {
        'index': 5, 
        'type': float,
        'field_index': 17,
-       'size': 6,
+       'size': 7,
        'missing': 99.9,
        'position': None,
        'description': "Original Error Variance"       
@@ -417,7 +417,7 @@ ISPDFEEDBACK = {
        'index': 6,
        'type': float,
        'field_index': 18,
-       'size': 7,
+       'size': 8,
        'missing': 99.9,
        'position': None,
        'description': "Observation error variance if modified by analysis"
@@ -489,7 +489,7 @@ ISPDFEEDBACK = {
        'index': 14,
        'type': float,
        'field_index': 26,
-       'size': 8,
+       'size': 9,
        'missing': 99.9,
        'position': None,
        'description': "Variance of Hx^f Variance of Ensemble Guess Pressure interpolated to observation time and location"
@@ -498,7 +498,7 @@ ISPDFEEDBACK = {
        'index': 15,
        'type': float,
        'field_index': 27,
-       'size': 8,
+       'size': 9,
        'missing': 9999.9,
        'position': None,
        'description': "(Observation-Bias) minus First Guess Pressure"
@@ -507,7 +507,7 @@ ISPDFEEDBACK = {
        'index': 16,
        'type': float,
        'field_index': 28,
-       'size': 8,
+       'size': 9,
        'missing': 99.9,
        'position': None,
        'description': "Variance of Hx^a Variance of Ensemble Analysis interpolated to observation time and location"
@@ -516,7 +516,7 @@ ISPDFEEDBACK = {
        'index': 17,
        'type': float,
        'field_index': 29,
-       'size': 8,
+       'size': 9,
        'missing': 9999.99,
        'position': None,
        'description': "Observation-Bias) minus Ensemble Mean Analysis Pressure"

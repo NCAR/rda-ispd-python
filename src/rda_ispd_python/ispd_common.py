@@ -209,7 +209,9 @@ def get_itidx_date(uid):
    table = "cntldb.itidx_{}".format(uidx)
 
    pgrec = PgDBI.pgget(table, "*", "suid = '{}'".format(suid), PgLOG.LGEREX)
-   if not pgrec: return PgLOG.pglog("{}: SKIP suid not in {}".format(suid, table), PgLOG.WARNLG)
+   if not pgrec:
+      logger.warning("{}: SKIP suid not in {}".format(suid, table))
+      return
 
    if CHKEXIST:    # check
       table = "{}_{}".format(ATTMNAME, pgrec['tidx'])
@@ -258,7 +260,7 @@ def get_record_date(yr, mo, dy):
       edate = PgUtil.enddate(sym+"-01", 0, 'M')
       if cdate > edate:
          cdate = edate
-         PgLOG.pglog("{}: set {}-{} to {}".format(cdate, sym, dy, edate), PgLOG.LOGWRN)
+         logger.warning("{}: set {}-{} to {}".format(cdate, sym, dy, edate))
 
    return cdate
 
@@ -424,9 +426,7 @@ def add_records_to_table(tname, suffix, records, cdate):
    cnt = PgDBI.pgmadd(table, records, PgLOG.LGEREX)
 
    ess = 's' if cnt > 1 else ''
-   msg = "{}: {} record{} added to {}".format(cdate, cnt, ess, table)
-   logger.info(msg)
-   PgLOG.pglog(msg, PgLOG.LOGWRN)
+   logger.info("{}: {} record{} added to {}".format(cdate, cnt, ess, table))
 
    return cnt
 
